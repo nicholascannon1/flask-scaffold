@@ -1,6 +1,6 @@
 # Sets up project scaffold
 # Written by Nicholas Cannon
-import os
+import os, shutil
 from sys import argv
 
 def main():
@@ -46,8 +46,8 @@ def main():
     f.truncate()
 
   # Remove Scaffold .git file
-  if os.path.exists(os.path.join(cwd, '/.git')):
-    os.unlink('.git')
+  if os.path.exists(os.path.join(cwd, '.git')):
+    shutil.rmtree(os.path.join(cwd, '.git'))
     print('Removed old .git file')
   
   # Remove README.md
