@@ -1,5 +1,5 @@
 # routes/index.py
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 
 from ..middleware.logger import logger
 
