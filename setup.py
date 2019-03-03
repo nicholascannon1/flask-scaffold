@@ -38,7 +38,7 @@ def main():
   print('Project package renamed')
 
   print('Rewriting run.py file')
-  # remove old package name from run.pyc
+  # remove old package name from run.py
   with open(os.path.join(cwd, 'run.py'), 'r+') as f:
     data = f.read().replace('flask_scaffold', PACKAGE_NAME)
     f.seek(0)
@@ -51,7 +51,7 @@ def main():
     print('Removed old .git file')
   
   # Remove README.md
-  if os.path.exists(os.path.join(cwd, '/README.md')):
+  if os.path.exists(os.path.join(cwd, 'README.md')):
     os.unlink('README.md')
     print('Removed old README file')
 
