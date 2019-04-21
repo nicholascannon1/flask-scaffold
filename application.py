@@ -1,4 +1,4 @@
-# run.py
+# application.py
 from flask_scaffold import create_app
 
 application = create_app()
