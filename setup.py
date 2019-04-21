@@ -37,9 +37,11 @@ def main():
   os.rename('flask_scaffold', PACKAGE_NAME)
   print('Project package renamed')
 
+  os.rename('.gitignorefile', '.gitignore')
+
   print('Rewriting run.py file')
-  # remove old package name from run.py
-  with open(os.path.join(cwd, 'run.py'), 'r+') as f:
+  # remove old package name from application.py
+  with open(os.path.join(cwd, 'application.py'), 'r+') as f:
     data = f.read().replace('flask_scaffold', PACKAGE_NAME)
     f.seek(0)
     f.write(data)
@@ -59,7 +61,7 @@ def main():
   print('Initialized new git repo!')
 
   print('Activating env and installing dependencies')
-  os.system('source env/bin/activate; pip install --upgrade pip; pip install flask flask_sqlalchemy; pip freeze > requirements.txt')
+  os.system('source env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt; pip freeze > requirements.txt')
 
   # Delete this script!
   os.remove(os.path.join(os.getcwd(), 'setup.py'))
@@ -70,8 +72,7 @@ def main():
   print('Successfully set up project directory!')
   print(f'1. Move to project dir with cd {PROJECT_NAME}')
   print('2. Activate virtual env with source env/bin/activate')
-  print('3. Run server with python run.py')
-  print('4. Create .env file and add FLASK_ENV=development (if in dev mode)')
+  print('3. Run server with python application.py')
   print('*'*80)
 
 if __name__ == '__main__':

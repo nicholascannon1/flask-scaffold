@@ -3,6 +3,7 @@ from flask import Flask
 import os
 
 from .db import db
+from .schemas import ma
 from . import error_handlers
 from .routes.index import bp as index_bp
 
@@ -16,6 +17,8 @@ def create_app(config_file='config.py'):
   if not os.path.exists(os.path.join(app.config['BASE_DIR'], 'site.db')):
     print('Creating db file')
     db.create_all(app=app)
+
+  ma.init_app(app)
 
   # Register blueprints
   app.register_blueprint(index_bp)
